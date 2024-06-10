@@ -1,4 +1,4 @@
-name: Raspberry Pi 3
+name: Raspberry Pi 3 [1]
 
 on:
   # With these triggers the Yocto jobs will run

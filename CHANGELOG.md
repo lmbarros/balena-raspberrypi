@@ -1,6 +1,11 @@
 Change log
 -----------
 
+# v5.3.7+rev1
+## (2024-06-10)
+
+* First shot at integrating the new workflow [Leandro Motta Barros]
+
 # v5.3.7
 ## (2024-05-23)
 

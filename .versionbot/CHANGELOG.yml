@@ -1,4 +1,18 @@
 - commits:
+    - subject: First shot at integrating the new workflow
+      hash: b954c17e77769f8fcc3ed8953ae9fd20ccf13681
+      body: ""
+      footer:
+        Signed-off-by: Leandro Motta Barros <leandro@balena.io>
+        signed-off-by: Leandro Motta Barros <leandro@balena.io>
+        Changelog-entry: First shot at integrating the new workflow
+        changelog-entry: First shot at integrating the new workflow
+      author: Leandro Motta Barros
+      nested: []
+  version: 5.3.7+rev1
+  title: ""
+  date: 2024-06-10T22:18:05.155Z
+- commits:
     - subject: Update layers/meta-balena to 98a8dc813fb1df71c510732e14fa31446ef883e6
       hash: 4178e106a81ae1e8041214c923644140bbbe23dc
       body: Update layers/meta-balena

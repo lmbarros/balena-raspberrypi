@@ -1,0 +1,44 @@
+name: Raspberry Pi 3
+
+on:
+  # With these triggers the Yocto jobs will run
+  # in parallel with the Flowzone jobs, which is fine for now
+  # and allows us to better control what we want to test and when.
+  # It is expected that Flowzone could fail, but yocto jobs will run.
+  pull_request:
+    types: [opened, synchronize, closed]
+    branches:
+      - "main"
+      - "master"
+  pull_request_target:
+    types: [opened, synchronize, closed]
+    branches:
+      - "main"
+      - "master"
+
+jobs:
+  yocto:
+    name: Yocto
+    uses: balena-os/balena-yocto-scripts/.github/workflows/yocto-build-deploy.yml@master
+    # prevent duplicate workflow executions for pull_request and pull_request_target
+    if: |
+      (
+        github.event.pull_request.head.repo.full_name == github.repository &&
+        github.event_name == 'pull_request'
+      ) || (
+        github.event.pull_request.head.repo.full_name != github.repository &&
+        github.event_name == 'pull_request_target'
+      )
+    secrets: inherit
+    with:
+      # runs-on: '[ "ubuntu-latest" ]'
+      # On device repos we need to hardcode: machine
+      # On -some- device repos, we need to also hardcode (defaults will work otherwise):
+      #   for private device types: test-environment
+      #   for device types we use virtualised testing for: test-workers
+      machine: raspberrypi3
+      test-environment: bm.balena-dev.com
+      test-workers: qemu
+      # Allow overriding these inputs for manual triggers
+      # TODO: Originally, balena-staging.com
+      environment: gha-test-env

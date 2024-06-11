@@ -16,6 +16,13 @@ on:
       - "main"
       - "master"
 
+# LMB: I added those permission to fix errors I found. These mimic what we have
+# in balena-os/balena-yocto-scripts, but not sure this is the Right Thing to do
+# on a device repo.
+permissions:
+  id-token: write
+  statuses: read
+
 jobs:
   yocto:
     name: Yocto
@@ -31,13 +38,13 @@ jobs:
       )
     secrets: inherit
     with:
-      # runs-on: '[ "ubuntu-latest" ]'
+      runs-on: '[ "ubuntu-latest" ]'
       # On device repos we need to hardcode: machine
       # On -some- device repos, we need to also hardcode (defaults will work otherwise):
       #   for private device types: test-environment
       #   for device types we use virtualised testing for: test-workers
       machine: raspberrypi3
-      test-environment: bm.balena-dev.com
+      # test-environment: bm.balena-dev.com
       test-workers: qemu
       # Allow overriding these inputs for manual triggers
       # TODO: Originally, balena-staging.com

@@ -16,8 +16,12 @@ on:
       - "main"
       - "master"
 
+# LMB: I added those permission to fix errors I found. These mimic what we have
+# in balena-os/balena-yocto-scripts, but not sure this is the Right Thing to do
+# on a device repo.
 permissions:
   id-token: write
+  statuses: read
 
 jobs:
   yocto:

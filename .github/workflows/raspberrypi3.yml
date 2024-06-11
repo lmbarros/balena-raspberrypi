@@ -38,7 +38,7 @@ jobs:
       )
     secrets: inherit
     with:
-      # runs-on: '[ "ubuntu-latest" ]'
+      runs-on: '[ "ubuntu-latest" ]'
       # On device repos we need to hardcode: machine
       # On -some- device repos, we need to also hardcode (defaults will work otherwise):
       #   for private device types: test-environment

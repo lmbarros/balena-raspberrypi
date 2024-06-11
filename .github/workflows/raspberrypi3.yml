@@ -37,7 +37,7 @@ jobs:
       #   for private device types: test-environment
       #   for device types we use virtualised testing for: test-workers
       machine: raspberrypi3
-      test-environment: bm.balena-dev.com
+      # test-environment: bm.balena-dev.com
       test-workers: qemu
       # Allow overriding these inputs for manual triggers
       # TODO: Originally, balena-staging.com
